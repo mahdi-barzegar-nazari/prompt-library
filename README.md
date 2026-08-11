@@ -1,17 +1,30 @@
 <div align="center">
-  <h1>📝 CS & Learning Prompt Library</h1>
-  <p>A curated collection of modular prompts designed to help students leverage AI tools (ChatGPT, Claude, Gemini) for structured learning, problem-solving, and academic productivity.</p>
+
+# 📝 CS & Learning Prompt Library
+
+A curated collection of modular prompts designed to help students leverage AI tools (ChatGPT, Claude, Gemini) for structured learning, problem-solving, and academic productivity.
+
 </div>
+
 ---
+
 ## 📖 Overview
-This repository contains ready-to-use prompt files (`.txt`) tailored for Computer Science and academic studies. Instead of just generating direct answers, these prompts configure AI models to act as interactive tutors, code mentors, and study partners.
+
+This repository contains ready-to-use prompt files (`.txt`) tailored for Computer Science and academic studies.
+
+Instead of just generating direct answers, these prompts configure AI models to act as interactive tutors, code mentors, and study partners.
+
 ---
+
 ## 🚀 How to Use
+
 1. Click on any prompt file in the **Available Prompts** table below.
 2. Copy the full text from the `.txt` file.
 3. Paste it as the first message in a new chat session with your AI model (ChatGPT, Claude, Gemini, etc.).
 4. Begin your interactive learning session!
+
 ---
+
 ## 📚 Available Prompts
 
 | Prompt File | Category | Description |
@@ -25,10 +38,18 @@ This repository contains ready-to-use prompt files (`.txt`) tailored for Compute
 | [`writing-coach-prompt.txt`](./writing-coach-prompt.txt) | Writing | Guide for drafting clear, structured, and impactful academic text. |
 
 ---
+
 ## 🤝 Contributing & Ideas
-Feedback, new prompt ideas, and improvements are always welcome. Feel free to:
-* Open an **Issue** to suggest new prompts or report edge cases.
-* Submit a **Pull Request** if you have a well-tested prompt to add to the library.
+
+Feedback, new prompt ideas, and improvements are always welcome.
+
+Feel free to:
+
+- Open an **Issue** to suggest new prompts or report edge cases.
+- Submit a **Pull Request** if you have a well-tested prompt to add to the library.
+
 ---
+
 ## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
+
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
