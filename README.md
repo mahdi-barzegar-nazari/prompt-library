@@ -1,7 +1,7 @@
-<h1 align="center">📝 CS & Learning Prompt Library</h1>
-<p align="center">
-  A curated collection of modular prompts designed to help students leverage AI tools (ChatGPT, Claude, Gemini) for structured learning, problem-solving, and academic productivity.
-</p>
+<div align="center">
+  <h1>📝 CS & Learning Prompt Library</h1>
+  <p>A curated collection of modular prompts designed to help students leverage AI tools (ChatGPT, Claude, Gemini) for structured learning, problem-solving, and academic productivity.</p>
+</div>
 ---
 ## 📖 Overview
 This repository contains ready-to-use prompt files (`.txt`) tailored for Computer Science and academic studies. Instead of just generating direct answers, these prompts configure AI models to act as interactive tutors, code mentors, and study partners.
