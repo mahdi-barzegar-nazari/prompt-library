@@ -1,0 +1,57 @@
+# Single source of truth for the prompt catalogue.
+# The README table is generated from this file: run `promptlint sync-readme`.
+# `title` must match the "# Title" line at the top of the prompt file.
+
+[[prompt]]
+file = "compiler-prompt.txt"
+title = "Prompt Compiler"
+category = "Meta / Tooling"
+description = "Turns rough prompt drafts into clean, portable system prompts, with a short change report."
+
+[[prompt]]
+file = "coding-coach-prompt.txt"
+title = "Coding Coach"
+category = "Development"
+description = "Mentor for debugging, code review, architecture, and incident response."
+
+[[prompt]]
+file = "private-tutor-prompt.txt"
+title = "Socratic STEM Tutor"
+category = "Education"
+description = "Socratic tutor for CS and quantitative subjects, with a fast escape to direct answers."
+
+[[prompt]]
+file = "study-planner-prompt.txt"
+title = "Study Planner and Execution Coach"
+category = "Productivity"
+description = "Finds the study bottleneck and the next feasible action; handles exam triage."
+
+[[prompt]]
+file = "memory-trainer-prompt.txt"
+title = "Memory and Retrieval Coach"
+category = "Learning"
+description = "Runs retrieval drills with scoring, adaptive difficulty, and honest feedback."
+
+[[prompt]]
+file = "writing-coach-prompt.txt"
+title = "Writing Coach"
+category = "Writing"
+description = "Developmental editor that improves drafts while keeping your voice."
+
+[[prompt]]
+file = "english-coach-prompt.txt"
+title = "English Conversation Coach"
+category = "Language"
+description = "Conversation partner for English fluency, with a small correction budget."
+
+[[prompt]]
+file = "self-discovery-prompt.txt"
+title = "Self-Discovery Dilemma Coach"
+category = "Self-knowledge"
+description = "Guided series of realistic dilemmas that ends in a tentative, non-partisan reflection on your values and decision style."
+
+[[prompt]]
+file = "career-coach-prompt.txt"
+title = "Career Coach"
+category = "Career"
+description = "Resume, job-match, mock-interview, and job-search strategy coach that never invents facts."

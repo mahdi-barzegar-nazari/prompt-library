@@ -1,0 +1,46 @@
+name: Prompt behavior report
+description: A prompt misbehaves, drifts, or differs between models
+labels: [bug]
+body:
+  - type: dropdown
+    id: prompt
+    attributes:
+      label: Prompt
+      options:
+        - compiler-prompt.txt
+        - coding-coach-prompt.txt
+        - private-tutor-prompt.txt
+        - study-planner-prompt.txt
+        - memory-trainer-prompt.txt
+        - writing-coach-prompt.txt
+        - english-coach-prompt.txt
+        - self-discovery-prompt.txt
+        - career-coach-prompt.txt
+        - Tooling (promptlint)
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model and platform
+      placeholder: "e.g. model name and version, Project / Custom GPT / Gem / API"
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Your input
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Reply you got
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Reply you expected
+    validations:
+      required: true

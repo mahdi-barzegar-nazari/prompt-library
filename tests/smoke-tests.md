@@ -9,7 +9,7 @@ Every prompt should also pass these two shared checks.
 
 ---
 
-## prompt-compiler.txt
+## compiler-prompt.txt
 
 1. **Rough idea.** Input: "a bot that helps me prepare for job interviews". Expect: short notes in the user's language, then one plain-text code block with a complete English prompt (role, boundaries, working rules, output, language), and a suggested filename below the block. No filename or notes inside the block.
 2. **Good prompt, small flaw.** Input: a well-structured prompt with one contradiction. Expect: Minimal-Diff mode, the structure preserved, the contradiction resolved, and the notes naming that change.

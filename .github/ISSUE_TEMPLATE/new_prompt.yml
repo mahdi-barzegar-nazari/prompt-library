@@ -1,0 +1,21 @@
+name: New prompt proposal
+description: Suggest a prompt for the library
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What should the assistant do?
+      description: The role, the audience, and what a good result looks like.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Boundaries
+      description: What it must not do, and when it should stop coaching and answer directly.
+  - type: textarea
+    id: smoke
+    attributes:
+      label: Example checks
+      description: Two or three inputs with the reply you would expect, including one boundary case.

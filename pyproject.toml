@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptlint"
+version = "1.0.0"
+description = "Validation tooling for the CS & Learning Prompt Library"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Mahdi Barzegar Nazari" }]
+keywords = ["prompts", "prompt-engineering", "linter", "llm"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
+]
+dependencies = []  # runtime is standard library only
+
+[project.optional-dependencies]
+dev = ["ruff>=0.6", "mypy>=1.10", "pre-commit>=3.7"]
+
+[project.scripts]
+promptlint = "promptlint.cli:main"
+
+[project.urls]
+Repository = "https://github.com/mahdi-barzegar-nazari/prompt-library"
+Issues = "https://github.com/mahdi-barzegar-nazari/prompt-library/issues"
+Changelog = "https://github.com/mahdi-barzegar-nazari/prompt-library/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+promptlint = ["py.typed"]
+
+# Character budget for every prompt (see docs/design-principles.md).
+[tool.promptlint]
+max_chars = 7500
+target_chars = 6500
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "RUF", "N"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src", "tests"]

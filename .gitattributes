@@ -1,0 +1,8 @@
+# Prompts are pasted into chat tools: keep LF endings on every platform.
+* text=auto eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.svg text eol=lf

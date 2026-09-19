@@ -1,5 +1,22 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- **Prompts moved to `prompts/`.** All prompt files are byte-identical to the previous release; only their location changed. Update any links that pointed at the repository root.
+- **`prompt-compiler.txt` renamed to `compiler-prompt.txt`** so every prompt follows the documented `<name>-prompt.txt` convention.
+- **README prompt table is now generated** from `prompts/manifest.toml` (`promptlint sync-readme`) instead of being edited by hand.
+- **`scripts/check.py` replaced by the `promptlint` package** (`src/promptlint/`), split into models, registry, rules, checks, README sync, and CLI. All previous checks are preserved. New checks: manifest/file agreement, filename convention, title-matches-manifest, data-isolation rule present in every prompt, at least three smoke checks per prompt, README table in sync. Link checking now ignores code blocks.
+
+### Added
+
+- `.github/workflows/ci.yml` (lint, type-check, tests on Python 3.11 to 3.14, prompt validation) and `links.yml` (weekly external link check). The 2026-09-18 entry lists a CI workflow and `.gitattributes`, but neither was present in the repository; both now exist.
+- `pyproject.toml`, `.gitignore`, `.gitattributes`, `.editorconfig`, `.pre-commit-config.yaml`, `Makefile`.
+- Unit and integration tests for `promptlint`.
+- `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue forms, pull request template, Dependabot config.
+- `docs/architecture.md` and a README banner, badges, quickstart, architecture diagram, and roadmap.
+
 ## 2026-09-19
 
 - **Added `self-discovery-prompt.txt`.** A guided series of dilemmas ending in a tentative reflection on values and decision style. Compared with the original draft, it is transparent about its purpose instead of hiding it, presents results as hypotheses rather than findings, avoids party and ideology labels, allows "neither" and "it depends" answers, lets the user stop or see results early, adds a language rule and length limits, and treats the user's answers as data.
