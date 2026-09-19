@@ -24,6 +24,7 @@ def check_no_all_caps_shouting(prompt: PromptFile, _ctx: RuleContext) -> Iterato
     if re.search(r"\b[A-Z]{12,}\b", prompt.text):
         yield _error(prompt, "contains a very long ALL-CAPS word")
 
+
 PROMPT_RULES = (*PROMPT_RULES, check_no_all_caps_shouting)
 ```
 
