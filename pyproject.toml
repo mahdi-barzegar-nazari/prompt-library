@@ -23,7 +23,7 @@ classifiers = [
 dependencies = []  # runtime is standard library only
 
 [project.optional-dependencies]
-dev = ["ruff>=0.6", "mypy>=1.10", "pre-commit>=3.7"]
+dev = ["ruff>=0.16.7", "mypy>=1.10", "pre-commit>=3.7"]
 
 [project.scripts]
 promptlint = "promptlint.cli:main"
