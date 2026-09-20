@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/github/license/mahdi-barzegar-nazari/prompt-library?style=flat-square)](./LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white)](./pyproject.toml)
 [![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=flat-square)](https://github.com/astral-sh/ruff)
-[![Prompts: Curated](https://img.shields.io/badge/prompts-curated-8A2BE2?style=flat-square)](#available-prompts)
+[![Prompts: 9](https://img.shields.io/badge/prompts-9-8A2BE2?style=flat-square)](#available-prompts)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](./CONTRIBUTING.md)
 
 **A curated collection of compact, model-portable system prompts that turn a general chat model into a tutor, coach, or planner.**
