@@ -8,6 +8,7 @@
 - **`prompt-compiler.txt` renamed to `compiler-prompt.txt`** so every prompt follows the documented `<name>-prompt.txt` convention.
 - **README prompt table is now generated** from `prompts/manifest.toml` (`promptlint sync-readme`) instead of being edited by hand.
 - **`scripts/check.py` replaced by the `promptlint` package** (`src/promptlint/`), split into models, registry, rules, checks, README sync, and CLI. All previous checks are preserved. New checks: manifest/file agreement, filename convention, title-matches-manifest, data-isolation rule present in every prompt, at least three smoke checks per prompt, README table in sync. Link checking now ignores code blocks.
+- **Roadmap no longer lists scripted API evals.** Per-model smoke tests stay manual.
 
 ### Added
 
@@ -17,6 +18,7 @@
 - `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue forms, pull request template, Dependabot config.
 - `docs/architecture.md` and a README banner, badges, quickstart, architecture diagram, and roadmap.
 - **`promptlint` hardening.** The vendor/model-name rule now also rejects GPT (alone), Llama, Mistral, DeepSeek, Grok, Qwen, and Bard as whole words; a new warning-only rule (`check_length_rule`) flags prompts that never mention an output length (words, sentences, brief, short, concise, length); a test checks that `pyproject.toml` and `promptlint.__version__` agree.
+- **Multi-turn smoke checks added.** Eight prompts now end with one multi-turn check each in `tests/smoke-tests.md`; the compiler prompt has no behavior that depends on earlier turns, so it has none.
 
 ## 2026-09-19
 

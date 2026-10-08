@@ -141,15 +141,14 @@ Adding a rule is a two-step change: write a function `(PromptFile, RuleContext) 
 | Static typing (strict) | mypy | CI |
 | Unit and integration tests | `unittest` (Python 3.11 to 3.14) | CI |
 | Dead external links | lychee | Weekly scheduled workflow |
-| Behavior on a real model | [`tests/smoke-tests.md`](./tests/smoke-tests.md) | Manual (see roadmap) |
+| Behavior on a real model | [`tests/smoke-tests.md`](./tests/smoke-tests.md) | Manual |
 
 **Status:** the prompts were reviewed against the official guidance and pass every automated check. Behavioral results per model have not been recorded yet. Run the smoke tests on the model you use and open an issue if something drifts.
 
 ## Roadmap
 
-- [ ] Scripted behavior evals: run each smoke test against a model API and assert on the reply
 - [ ] Record per-model smoke-test results in `docs/results/`
-- [ ] Multi-turn smoke tests (most current checks are single-turn)
+- [x] Multi-turn smoke tests
 - [ ] Optional Persian translations of prompt output labels
 - [ ] Publish `promptlint` as a standalone tool for linting other prompt collections
 
