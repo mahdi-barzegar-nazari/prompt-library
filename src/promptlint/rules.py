@@ -14,7 +14,9 @@ from promptlint.models import Finding, Limits, PromptEntry, PromptFile, Severity
 
 FILENAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*-prompt\.txt$")
 VENDOR_WORDS = re.compile(
-    r"\b(ChatGPT|GPT-?\d|OpenAI|Claude|Anthropic|Gemini|Google|Copilot)\b", re.IGNORECASE
+    r"\b(ChatGPT|GPT-?\d|GPT|OpenAI|Claude|Anthropic|Gemini|Google|Copilot"
+    r"|Llama|Mistral|DeepSeek|Grok|Qwen|Bard)\b",
+    re.IGNORECASE,
 )
 LEFTOVER_MARKERS = re.compile(r"SYSTEM PROMPT|TODO|FIXME")
 # Persian/Arabic block and the zero-width non-joiner are the only allowed non-ASCII text.
@@ -22,6 +24,9 @@ ALLOWED_NON_ASCII = re.compile(r"[\u0600-\u06FF\u200c]")
 BOUNDARIES_HEADING = re.compile(r"^## (Boundaries|Principles)\b", re.MULTILINE)
 LANGUAGE_MENTION = re.compile(r"language", re.IGNORECASE)
 DATA_RULE = re.compile(r"not instructions", re.IGNORECASE)
+# Heuristic: a prompt should say something about how long its replies are.
+# Any one of these whole words counts as a mention.
+LENGTH_WORDS = re.compile(r"\b(words|sentences|brief|short|concise|length)\b", re.IGNORECASE)
 
 
 @dataclass(frozen=True, slots=True)
@@ -67,6 +72,15 @@ def check_length(prompt: PromptFile, ctx: RuleContext) -> Iterator[Finding]:
         )
 
 
+def check_length_rule(prompt: PromptFile, _ctx: RuleContext) -> Iterator[Finding]:
+    if not LENGTH_WORDS.search(prompt.text):
+        yield Finding(
+            Severity.WARNING,
+            prompt.name,
+            "has no output-length rule (none of: words, sentences, brief, short, concise, length)",
+        )
+
+
 def check_structure(prompt: PromptFile, ctx: RuleContext) -> Iterator[Finding]:
     text = prompt.text
     if not text.startswith("# "):
@@ -98,6 +112,7 @@ PROMPT_RULES: tuple[Rule, ...] = (
     check_filename,
     check_encoding,
     check_length,
+    check_length_rule,
     check_structure,
     check_content,
 )

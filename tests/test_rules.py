@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from helpers import VALID_PROMPT, RepoTestCase
+from helpers import LENGTH_RULE, VALID_PROMPT, RepoTestCase
 
 
 class PromptRuleTests(RepoTestCase):
@@ -30,6 +30,26 @@ class PromptRuleTests(RepoTestCase):
         findings = self.findings()
         self.assertEqual([str(f.severity) for f in findings], ["warning"])
         self.assertIn("above the 300 target", findings[0].message)
+
+    def test_length_rule_passes_with_any_mention(self) -> None:
+        bare = VALID_PROMPT.replace(LENGTH_RULE, "")
+        for word in ("words", "sentences", "brief", "short", "concise", "length", "LENGTH"):
+            with self.subTest(word):
+                self.write_prompt(f"{bare}Replies: {word}.\n")
+                self.assertEqual(self.findings(), [])
+
+    def test_length_rule_warns_without_a_mention(self) -> None:
+        self.write_prompt(VALID_PROMPT.replace(LENGTH_RULE, ""))
+        findings = self.findings()
+        self.assertEqual([str(f.severity) for f in findings], ["warning"])
+        self.assertIn("output-length rule", findings[0].message)
+
+    def test_length_rule_needs_whole_words(self) -> None:
+        bare = VALID_PROMPT.replace(LENGTH_RULE, "")
+        for text in ("Briefly.", "A lengthy reply.", "Shortly."):
+            with self.subTest(text):
+                self.write_prompt(f"{bare}{text}\n")
+                self.assertHasMessage("output-length rule")
 
     def test_structure_problems(self) -> None:
         untitled = VALID_PROMPT.replace("# Demo Coach", "Demo Coach", 1)
@@ -59,6 +79,24 @@ class PromptRuleTests(RepoTestCase):
             with self.subTest(label):
                 self.write_prompt(content)
                 self.assertHasMessage(fragment)
+
+    def test_additional_vendor_and_model_names_are_rejected(self) -> None:
+        for name in ("GPT", "Llama", "Mistral", "DeepSeek", "Grok", "Qwen", "Bard"):
+            with self.subTest(name):
+                self.write_prompt(f"{VALID_PROMPT}Works with {name}.\n")
+                self.assertHasMessage(f"vendor or model name ({name})")
+
+    def test_vendor_and_model_names_are_case_insensitive(self) -> None:
+        for name in ("gpt", "llama", "mistral", "deepseek", "grok", "qwen", "bard"):
+            with self.subTest(name):
+                self.write_prompt(f"{VALID_PROMPT}Works with {name}.\n")
+                self.assertHasMessage(f"vendor or model name ({name})")
+
+    def test_near_misses_and_ordinary_words_are_allowed(self) -> None:
+        for word in ("grokking", "bardic", "perplexity"):
+            with self.subTest(word):
+                self.write_prompt(f"{VALID_PROMPT}Teach {word}.\n")
+                self.assertEqual(self.findings(), [])
 
     def test_persian_text_and_zwnj_are_allowed(self) -> None:
         persian = "\u0633\u0644\u0627\u0645 \u0645\u06cc\u200c\u0631\u0648\u0645"

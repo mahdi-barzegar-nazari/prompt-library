@@ -16,6 +16,7 @@
 - Unit and integration tests for `promptlint`.
 - `CODE_OF_CONDUCT.md`, `SECURITY.md`, issue forms, pull request template, Dependabot config.
 - `docs/architecture.md` and a README banner, badges, quickstart, architecture diagram, and roadmap.
+- **`promptlint` hardening.** The vendor/model-name rule now also rejects GPT (alone), Llama, Mistral, DeepSeek, Grok, Qwen, and Bard as whole words; a new warning-only rule (`check_length_rule`) flags prompts that never mention an output length (words, sentences, brief, short, concise, length); a test checks that `pyproject.toml` and `promptlint.__version__` agree.
 
 ## 2026-09-19
 

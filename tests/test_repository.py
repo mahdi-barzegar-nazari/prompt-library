@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import re
+import tomllib
 import unittest
 from pathlib import Path
 
+import promptlint
 from promptlint.checks import run_checks
 from promptlint.registry import load_manifest
 
@@ -16,6 +18,10 @@ class RealRepositoryTests(unittest.TestCase):
     def test_repository_passes_its_own_checks(self) -> None:
         report = run_checks(REPO_ROOT)
         self.assertEqual([str(f) for f in report.errors], [])
+
+    def test_pyproject_version_matches_package_version(self) -> None:
+        pyproject = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+        self.assertEqual(pyproject["project"]["version"], promptlint.__version__)
 
     def test_bug_report_form_lists_every_prompt(self) -> None:
         form = (REPO_ROOT / ".github" / "ISSUE_TEMPLATE" / "bug_report.yml").read_text(
