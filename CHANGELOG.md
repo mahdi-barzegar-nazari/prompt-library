@@ -8,6 +8,7 @@
 - **`prompt-compiler.txt` renamed to `compiler-prompt.txt`** so every prompt follows the documented `<name>-prompt.txt` convention.
 - **README prompt table is now generated** from `prompts/manifest.toml` (`promptlint sync-readme`) instead of being edited by hand.
 - **`scripts/check.py` replaced by the `promptlint` package** (`src/promptlint/`), split into models, registry, rules, checks, README sync, and CLI. All previous checks are preserved. New checks: manifest/file agreement, filename convention, title-matches-manifest, data-isolation rule present in every prompt, at least three smoke checks per prompt, README table in sync. Link checking now ignores code blocks.
+- **Compiler prompt closing check is now an outcome rule.** The last paragraph of `compiler-prompt.txt` states what the compiled prompt must contain instead of a check before answering, the compiler now wraps a compiled prompt that contains code fences in a longer fence, and smoke check 4 was added for it.
 - **Roadmap no longer lists scripted API evals.** Per-model smoke tests stay manual.
 
 ### Added
