@@ -1,6 +1,6 @@
 # Smoke Tests
 
-A few short conversation checks per prompt. Paste the prompt as the instructions, send each input as a new chat, and compare the reply with the expectation. Run them on the model you actually use, and again after editing a prompt.
+A few short conversation checks per prompt. Paste the prompt as the instructions, send each single-turn check as a new chat, and compare the reply with the expectation. Checks marked "(multi-turn)", checks that start with "After ...", and checks that answer or reply to an earlier step need earlier turns, so they continue in one chat. Run them on the model you actually use, and again after editing a prompt.
 
 Every prompt should also pass these two shared checks.
 

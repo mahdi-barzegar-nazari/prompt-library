@@ -19,6 +19,7 @@
 - `docs/architecture.md` and a README banner, badges, quickstart, architecture diagram, and roadmap.
 - **`promptlint` hardening.** The vendor/model-name rule now also rejects GPT (alone), Llama, Mistral, DeepSeek, Grok, Qwen, and Bard as whole words; a new warning-only rule (`check_length_rule`) flags prompts that never mention an output length (words, sentences, brief, short, concise, length); a test checks that `pyproject.toml` and `promptlint.__version__` agree.
 - **Multi-turn smoke checks added.** Eight prompts now end with one multi-turn check each in `tests/smoke-tests.md`; the compiler prompt has no behavior that depends on earlier turns, so it has none.
+- **`docs/results/`** with a recording guide and template for per-model smoke-test results. The `tests/smoke-tests.md` intro now separates single-turn checks (a new chat each) from multi-turn checks (one chat).
 
 ## 2026-09-19
 
